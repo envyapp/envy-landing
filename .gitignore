@@ -4,3 +4,6 @@ node_modules
 *.local
 
 .envy
+
+# Envy local secrets
+.env
