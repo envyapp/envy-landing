@@ -14,6 +14,7 @@ import {
   XCircle,
 } from "lucide-react";
 
+import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -854,6 +855,9 @@ export function LandingPage() {
             >
               Contact
             </a>
+            <Link to="/privacy" className="hover:text-foreground">
+              Privacy
+            </Link>
           </div>
         </div>
       </footer>
