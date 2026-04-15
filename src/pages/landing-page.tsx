@@ -37,12 +37,6 @@ const problemItems = [
       "Dev has 12 secrets. Production has 14. Staging has 11. Nobody notices until something breaks at 2am.",
   },
   {
-    icon: "👻",
-    title: "Ex-employees still have access",
-    description:
-      "Someone left three months ago. Their local .env file still has production database credentials. You can't rotate what you can't see.",
-  },
-  {
     icon: "🤷",
     title: "No audit trail whatsoever",
     description:
@@ -53,12 +47,6 @@ const problemItems = [
     title: "CI/CD tokens have god-mode access",
     description:
       "Your deployment pipeline can read every secret in every environment. That's not access control, that's a liability.",
-  },
-  {
-    icon: "🏢",
-    title: "Vault is overkill for your team size",
-    description:
-      "You need proper secret management, not a 6-month infrastructure project. Envy deploys with Docker Compose.",
   },
 ];
 
@@ -173,10 +161,11 @@ const comparisonData = [
 const plans = [
   {
     name: "Founding",
-    price: "$1,500",
-    period: "/year",
-    description: "For the first 10 teams. Full product, founding price.",
-    badge: "Founding Customer",
+    price: "3 months free",
+    period: "",
+    priceSub: "then $1,500 for the remaining 9 months",
+    description: "For the first 3–4 teams. Full product, founding deal.",
+    badge: "Limited — Founding Customer",
     features: [
       "Up to 20 users",
       "Unlimited projects & environments",
@@ -186,8 +175,10 @@ const plans = [
       "Audit trail & secret history",
       "Key rotation",
       "Docker Compose deployment",
-      "Email support",
-      "One onboarding session",
+      "Direct founder access",
+      "Onboarding call included",
+      "Self-hosted deployment support",
+      "Response within 1 business day",
     ],
     highlight: true,
     ctaLabel: "Claim Founding Spot",
@@ -328,7 +319,12 @@ export function LandingPage() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                View on GitHub <ArrowRight className="ml-1 h-3 w-3" />
+                GitHub
+              </a>
+            </Button>
+            <Button asChild size="sm" className="hidden sm:inline-flex">
+              <a href="mailto:hello@getenv.org?subject=Deployment%20Fit%20Call">
+                Book a Call
               </a>
             </Button>
           </div>
@@ -355,34 +351,46 @@ export function LandingPage() {
             </p>
 
             <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
-              {/* TODO: Video hazır olduğunda aşağıdaki butonu aktif et ve href="VIDEO_URL" yap
               <Button asChild size="lg">
-                <a href="#demo">
-                  <Play className="mr-1.5 h-4 w-4" />
-                  Watch 3-Minute Demo
-                </a>
-              </Button>
-              */}
-              <Button asChild variant="outline" size="lg">
                 <a
                   href="https://github.com/envyapp/envy-cli"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Explore CLI on GitHub
+                  Explore CLI on GitHub <ArrowRight className="ml-1.5 h-4 w-4" />
+                </a>
+              </Button>
+              <Button asChild variant="outline" size="lg">
+                <a href="mailto:hello@getenv.org?subject=Deployment%20Fit%20Call">
+                  Book a Call
                 </a>
               </Button>
             </div>
 
-            <p className="mt-4 text-xs text-muted-foreground">
-              or{" "}
-              <a
-                href="mailto:hello@getenv.org?subject=Deployment%20Fit%20Call"
-                className="text-foreground/70 underline hover:text-foreground"
-              >
-                book a 15-min deployment fit call
+            {/* Trust strip */}
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-muted-foreground">
+              {[
+                "Self-hosted",
+                "Docker Compose deploy",
+                "Client-side encrypted",
+                "No vendor lock-in",
+                "Built for 5–30 engineers",
+              ].map((item) => (
+                <span key={item} className="flex items-center gap-1.5">
+                  <Check className="h-3 w-3 text-primary" />
+                  {item}
+                </span>
+              ))}
+            </div>
+
+            {/* TODO: Video hazır olduğunda aşağıdaki butonu aktif et ve href="VIDEO_URL" yap
+            <Button asChild size="lg">
+              <a href="#demo">
+                <Play className="mr-1.5 h-4 w-4" />
+                Watch 3-Minute Demo
               </a>
-            </p>
+            </Button>
+            */}
           </div>
         </section>
 
@@ -466,8 +474,9 @@ export function LandingPage() {
             complexity.
           </p>
 
+          {/* Primary features — first 5 */}
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {featureItems.map((feature) => (
+            {featureItems.slice(0, 5).map((feature) => (
               <Card key={feature.title} className="border-border/60">
                 <CardHeader>
                   <feature.icon className="h-5 w-5 text-primary" />
@@ -485,6 +494,29 @@ export function LandingPage() {
                 </CardContent>
               </Card>
             ))}
+          </div>
+
+          {/* Secondary features — remaining 4 */}
+          <div className="mt-4">
+            <p className="mb-3 text-xs font-medium uppercase tracking-wider text-muted-foreground">
+              More capabilities
+            </p>
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              {featureItems.slice(5).map((feature) => (
+                <div
+                  key={feature.title}
+                  className="flex gap-3 rounded-lg border border-border/40 bg-muted/20 p-3"
+                >
+                  <feature.icon className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground" />
+                  <div>
+                    <p className="text-sm font-medium">{feature.title}</p>
+                    <p className="mt-0.5 text-xs text-muted-foreground line-clamp-2">
+                      {feature.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -681,7 +713,12 @@ export function LandingPage() {
                     <th className="bg-primary/5 px-4 py-3 font-semibold text-primary">Envy</th>
                     <th className="px-4 py-3 font-medium">.env files</th>
                     <th className="px-4 py-3 font-medium">Vault</th>
-                    <th className="px-4 py-3 font-medium">SaaS tools</th>
+                    <th className="px-4 py-3 font-medium">
+                      Managed SaaS
+                      <span className="ml-1 text-[10px] font-normal text-muted-foreground/70">
+                        (Doppler, Infisical…)
+                      </span>
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -735,9 +772,12 @@ export function LandingPage() {
                         {plan.period}
                       </span>
                     </p>
+                    {"priceSub" in plan && plan.priceSub && (
+                      <p className="mb-1 text-xs font-medium text-primary">{plan.priceSub}</p>
+                    )}
                     {plan.highlight && (
                       <p className="mb-4 text-xs text-muted-foreground">
-                        Limited spots · Locked-in rate for year one
+                        Limited to 3–4 founding customers · Spot reserved by email
                       </p>
                     )}
                     {!plan.highlight && <div className="mb-4" />}
