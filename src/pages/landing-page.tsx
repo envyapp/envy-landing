@@ -6,7 +6,6 @@ import {
   GitCompare,
   Layers3,
   Lock,
-  Play,
   RefreshCw,
   Server,
   ShieldCheck,
@@ -355,12 +354,14 @@ export function LandingPage() {
             </p>
 
             <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
+              {/* TODO: Video hazır olduğunda aşağıdaki butonu aktif et ve href="VIDEO_URL" yap
               <Button asChild size="lg">
                 <a href="#demo">
                   <Play className="mr-1.5 h-4 w-4" />
                   Watch 3-Minute Demo
                 </a>
               </Button>
+              */}
               <Button asChild variant="outline" size="lg">
                 <a
                   href="https://github.com/envyapp/envy-cli"
@@ -793,12 +794,14 @@ export function LandingPage() {
                 See the full workflow in 3 minutes. Deploy on your infrastructure when you're ready.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3">
+                {/* TODO: Video hazır olduğunda aşağıdaki butonu aktif et ve href="VIDEO_URL" yap
                 <Button asChild size="lg">
                   <a href="#demo">
                     <Play className="mr-1.5 h-4 w-4" />
                     Watch the Demo
                   </a>
                 </Button>
+                */}
                 <Button asChild variant="outline" size="lg">
                   <a
                     href="https://github.com/envyapp/envy-cli"
