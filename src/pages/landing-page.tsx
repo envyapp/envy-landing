@@ -572,7 +572,7 @@ export function LandingPage() {
               </div>
               <CardContent className="p-0">
                 <img
-                  src="/screenshot-permissions.png"
+                  src={theme === "dark" ? "/screenshot-permissions-dark.png" : "/screenshot-permissions-light.png"}
                   alt="Environment Access Matrix — role-based permission grid across environments"
                   className="w-full object-cover"
                 />
@@ -585,7 +585,7 @@ export function LandingPage() {
               </div>
               <CardContent className="p-0">
                 <img
-                  src="/screenshot-secrets.png"
+                  src={theme === "dark" ? "/screenshot-secrets-dark.png" : "/screenshot-secrets-light.png"}
                   alt="Secret list with masked values across Development, Staging and Production"
                   className="w-full object-cover"
                 />
