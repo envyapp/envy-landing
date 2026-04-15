@@ -448,14 +448,14 @@ export function LandingPage() {
               Every growing team hits the same wall with secrets. Envy exists because we hit it too.
             </p>
 
-            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-10 grid gap-4 sm:grid-cols-2">
               {problemItems.map((item) => (
-                <Card key={item.title} className="border-border/60">
+                <Card key={item.title} className="flex flex-col border-border/60">
                   <CardHeader>
                     <span className="text-xl">{item.icon}</span>
                     <CardTitle className="text-base">{item.title}</CardTitle>
                   </CardHeader>
-                  <CardContent>
+                  <CardContent className="flex-1">
                     <p className="text-sm text-muted-foreground">{item.description}</p>
                   </CardContent>
                 </Card>
