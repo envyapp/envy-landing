@@ -340,13 +340,13 @@ export function LandingPage() {
           <div className="mx-auto max-w-3xl text-center">
             <Badge variant="secondary">Self-hosted &middot; End-to-end encrypted</Badge>
             <h1 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">
-              Stop sharing secrets
+              Self-hosted secrets management
               <br />
-              over <span className="text-primary">Slack.</span>
+              for <span className="text-primary">modern engineering teams.</span>
             </h1>
             <p className="mx-auto mt-4 max-w-xl text-base text-muted-foreground">
-              Envy gives your team encrypted, auditable, role-based secret management — deployed on
-              your own infrastructure. No vendor lock-in. Your secrets never leave your servers.
+              End-to-end encrypted, role-based, auditable — deployed on your own infrastructure
+              with Docker Compose. No vendor lock-in. Your secrets never leave your servers.
             </p>
             <p className="mt-3 text-xs text-muted-foreground">
               Built for 5–30 person engineering teams running multiple environments and CI/CD
