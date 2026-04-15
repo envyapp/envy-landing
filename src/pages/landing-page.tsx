@@ -191,7 +191,7 @@ const plans = [
     ],
     highlight: true,
     ctaLabel: "Claim Founding Spot",
-    ctaHref: "mailto:hello@envysecrets.dev?subject=Founding%20Customer%20Inquiry",
+    ctaHref: "mailto:hello@getenv.org?subject=Founding%20Customer%20Inquiry",
     ctaVariant: "default" as const,
   },
   {
@@ -209,7 +209,7 @@ const plans = [
     ],
     highlight: false,
     ctaLabel: "Contact Us",
-    ctaHref: "mailto:hello@envysecrets.dev?subject=Standard%20License%20Inquiry",
+    ctaHref: "mailto:hello@getenv.org?subject=Standard%20License%20Inquiry",
     ctaVariant: "outline" as const,
   },
   {
@@ -227,7 +227,7 @@ const plans = [
     ],
     highlight: false,
     ctaLabel: "Talk to Us",
-    ctaHref: "mailto:hello@envysecrets.dev?subject=Enterprise%20Inquiry",
+    ctaHref: "mailto:hello@getenv.org?subject=Enterprise%20Inquiry",
     ctaVariant: "outline" as const,
   },
 ];
@@ -326,7 +326,7 @@ export function LandingPage() {
             <ThemeToggle theme={theme} onToggle={toggleTheme} />
             <Button asChild variant="outline" size="sm" className="hidden sm:inline-flex">
               <a
-                href="https://github.com/MuzafferYalcin/Envy"
+                href="https://github.com/envyapp/envy-cli"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -365,7 +365,7 @@ export function LandingPage() {
               </Button>
               <Button asChild variant="outline" size="lg">
                 <a
-                  href="https://github.com/MuzafferYalcin/Envy"
+                  href="https://github.com/envyapp/envy-cli"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -377,7 +377,7 @@ export function LandingPage() {
             <p className="mt-4 text-xs text-muted-foreground">
               or{" "}
               <a
-                href="mailto:hello@envysecrets.dev?subject=Deployment%20Fit%20Call"
+                href="mailto:hello@getenv.org?subject=Deployment%20Fit%20Call"
                 className="text-foreground/70 underline hover:text-foreground"
               >
                 book a 15-min deployment fit call
@@ -570,19 +570,12 @@ export function LandingPage() {
               <div className="border-b border-border/50 px-4 py-3 font-mono text-xs text-muted-foreground">
                 Environment Access Matrix
               </div>
-              <CardContent className="p-5">
-                <div className="flex aspect-video items-center justify-center rounded-lg bg-muted/50">
-                  <div className="space-y-2 px-6 text-center text-sm text-muted-foreground">
-                    <p className="font-medium">Role × Environment access matrix</p>
-                    <p className="text-xs">
-                      Project Admin → Write on all envs
-                      <br />
-                      Project Developer → Read Values
-                      <br />
-                      Project Viewer → Read Names only
-                    </p>
-                  </div>
-                </div>
+              <CardContent className="p-0">
+                <img
+                  src="/screenshot-permissions.png"
+                  alt="Environment Access Matrix — role-based permission grid across environments"
+                  className="w-full object-cover"
+                />
               </CardContent>
             </Card>
 
@@ -590,19 +583,12 @@ export function LandingPage() {
               <div className="border-b border-border/50 px-4 py-3 font-mono text-xs text-muted-foreground">
                 Project Secrets & Environments
               </div>
-              <CardContent className="p-5">
-                <div className="flex aspect-video items-center justify-center rounded-lg bg-muted/50">
-                  <div className="space-y-2 px-6 text-center text-sm text-muted-foreground">
-                    <p className="font-medium">Secret list with masked values</p>
-                    <p className="text-xs">
-                      Development / Staging / Production tabs
-                      <br />
-                      Version tracking per secret
-                      <br />
-                      History + Show/Hide per value
-                    </p>
-                  </div>
-                </div>
+              <CardContent className="p-0">
+                <img
+                  src="/screenshot-secrets.png"
+                  alt="Secret list with masked values across Development, Staging and Production"
+                  className="w-full object-cover"
+                />
               </CardContent>
             </Card>
           </div>
@@ -796,7 +782,7 @@ export function LandingPage() {
                 </Button>
                 <Button asChild variant="outline" size="lg">
                   <a
-                    href="https://github.com/MuzafferYalcin/Envy"
+                    href="https://github.com/envyapp/envy-cli"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -807,7 +793,7 @@ export function LandingPage() {
               <p className="text-xs text-muted-foreground">
                 Ready to deploy?{" "}
                 <a
-                  href="mailto:hello@envysecrets.dev?subject=Deployment%20Fit%20Call"
+                  href="mailto:hello@getenv.org?subject=Deployment%20Fit%20Call"
                   className="text-foreground/70 underline hover:text-foreground"
                 >
                   Book a 15-min deployment fit call
@@ -824,7 +810,7 @@ export function LandingPage() {
           <p>© 2026 Envy. Self-hosted secrets management.</p>
           <div className="flex items-center gap-6">
             <a
-              href="https://github.com/MuzafferYalcin/Envy"
+              href="https://github.com/envyapp/envy-cli"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-foreground"
@@ -838,7 +824,7 @@ export function LandingPage() {
               Pricing
             </a>
             <a
-              href="mailto:hello@envysecrets.dev"
+              href="mailto:hello@getenv.org"
               className="hover:text-foreground"
             >
               Contact
