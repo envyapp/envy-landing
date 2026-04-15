@@ -176,6 +176,8 @@ const plans = [
       "Audit trail & secret history",
       "Key rotation",
       "Docker Compose deployment",
+    ],
+    support: [
       "Direct founder access",
       "Onboarding call included",
       "Self-hosted deployment support",
@@ -191,6 +193,7 @@ const plans = [
     price: "$3,000",
     period: "/ year",
     description: "Full on-prem license for growing engineering teams.",
+    ctaNote: "Includes onboarding call and deployment review.",
     features: [
       "Unlimited users",
       "Everything in Founding",
@@ -209,6 +212,7 @@ const plans = [
     price: "Custom",
     period: "",
     description: "For organizations with compliance, procurement, or custom deployment requirements.",
+    ctaNote: "We'll scope a plan around your team's needs.",
     features: [
       "Everything in Standard",
       "Dedicated onboarding & training",
@@ -753,11 +757,11 @@ export function LandingPage() {
               </p>
             </div>
 
-            <div className="grid gap-4 lg:grid-cols-3">
+            <div className="grid items-stretch gap-4 lg:grid-cols-3">
               {plans.map((plan) => (
                 <Card
                   key={plan.name}
-                  className={`relative ${plan.highlight ? "border-primary/60 shadow-lg shadow-primary/10" : "border-border/60"}`}
+                  className={`relative flex flex-col ${plan.highlight ? "border-primary/60 shadow-lg shadow-primary/10" : "border-border/60"}`}
                 >
                   {"badge" in plan && plan.badge && (
                     <Badge className="absolute -top-3 left-6">{plan.badge}</Badge>
@@ -766,22 +770,27 @@ export function LandingPage() {
                     <CardTitle>{plan.name}</CardTitle>
                     <CardDescription>{plan.description}</CardDescription>
                   </CardHeader>
-                  <CardContent>
-                    <p className="mb-1 text-3xl font-semibold">
-                      {plan.price}
-                      {plan.period && (
-                        <span className="ml-1 text-base font-normal text-muted-foreground">
-                          {plan.period}
-                        </span>
+
+                  <CardContent className="flex flex-1 flex-col">
+                    {/* Price */}
+                    <div className="mb-5">
+                      <p className="text-3xl font-semibold">
+                        {plan.price}
+                        {plan.period && (
+                          <span className="ml-1 text-base font-normal text-muted-foreground">
+                            {plan.period}
+                          </span>
+                        )}
+                      </p>
+                      {"priceNote1" in plan && plan.priceNote1 && (
+                        <p className="mt-1.5 text-xs text-muted-foreground">{plan.priceNote1}</p>
                       )}
-                    </p>
-                    {"priceNote1" in plan && plan.priceNote1 && (
-                      <p className="mt-1 text-xs text-muted-foreground">{plan.priceNote1}</p>
-                    )}
-                    {"priceNote2" in plan && plan.priceNote2 && (
-                      <p className="mb-4 text-xs text-muted-foreground">{plan.priceNote2}</p>
-                    )}
-                    {!("priceNote1" in plan) && <div className="mb-4" />}
+                      {"priceNote2" in plan && plan.priceNote2 && (
+                        <p className="mt-0.5 text-xs text-muted-foreground">{plan.priceNote2}</p>
+                      )}
+                    </div>
+
+                    {/* Feature list */}
                     <ul className="space-y-2">
                       {plan.features.map((feature) => (
                         <li
@@ -793,7 +802,40 @@ export function LandingPage() {
                         </li>
                       ))}
                     </ul>
-                    <Button className="mt-5 w-full" variant={plan.ctaVariant} asChild>
+
+                    {/* Founding support block — visually separated */}
+                    {"support" in plan && Array.isArray(plan.support) && plan.support.length > 0 && (
+                      <div className="mt-4 rounded-md border border-border/50 bg-muted/30 px-3 py-3">
+                        <p className="mb-2 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+                          Founding support
+                        </p>
+                        <ul className="space-y-1.5">
+                          {plan.support.map((item: string) => (
+                            <li key={item} className="flex items-start gap-2 text-xs text-muted-foreground">
+                              <Check className="mt-0.5 h-3 w-3 shrink-0 text-primary" />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {/* Spacer pushes CTA to bottom */}
+                    <div className="flex-1" />
+
+                    {/* CTA note */}
+                    {"ctaNote" in plan && plan.ctaNote && (
+                      <p className="mb-3 mt-5 text-center text-xs text-muted-foreground">
+                        {plan.ctaNote}
+                      </p>
+                    )}
+
+                    {/* CTA button — always at bottom */}
+                    <Button
+                      className={`w-full ${"ctaNote" in plan && plan.ctaNote ? "" : "mt-5"}`}
+                      variant={plan.ctaVariant}
+                      asChild
+                    >
                       <a href={plan.ctaHref}>
                         {plan.ctaLabel} <ArrowRight className="ml-1 h-3 w-3" />
                       </a>
