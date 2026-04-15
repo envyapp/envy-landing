@@ -565,38 +565,59 @@ export function LandingPage() {
             Your team manages secrets from both the CLI and a clean web interface.
           </p>
 
-          <div className="mt-10 grid gap-6 md:grid-cols-2">
-            <Card className="overflow-hidden border-border/60">
-              <div className="border-b border-border/50 px-4 py-3 font-mono text-xs text-muted-foreground">
-                Environment Access Matrix
+          <div className="mt-10 space-y-6">
+            <Card className="overflow-hidden border-border/60 shadow-sm">
+              <div className="flex items-center gap-3 border-b border-border/50 bg-muted/30 px-5 py-3">
+                <div className="flex gap-1.5">
+                  <span className="h-3 w-3 rounded-full bg-red-400/70" />
+                  <span className="h-3 w-3 rounded-full bg-yellow-400/70" />
+                  <span className="h-3 w-3 rounded-full bg-green-400/70" />
+                </div>
+                <span className="font-mono text-xs text-muted-foreground">
+                  Project Settings — Environment Access Matrix
+                </span>
               </div>
               <CardContent className="p-0">
                 <img
                   src={theme === "dark" ? "/screenshot-permissions-dark.png" : "/screenshot-permissions-light.png"}
                   alt="Environment Access Matrix — role-based permission grid across environments"
-                  className="w-full object-cover"
+                  className="w-full object-top object-cover transition-transform duration-300 hover:scale-[1.01]"
                 />
               </CardContent>
+              <div className="border-t border-border/40 bg-muted/20 px-5 py-3">
+                <p className="text-xs text-muted-foreground">
+                  <span className="font-medium text-foreground">Role × Environment matrix</span>
+                  {" "}— Set granular access per role per environment. Admin writes everywhere. Developer reads staging values. Viewer sees only key names in production.
+                </p>
+              </div>
             </Card>
 
-            <Card className="overflow-hidden border-border/60">
-              <div className="border-b border-border/50 px-4 py-3 font-mono text-xs text-muted-foreground">
-                Project Secrets & Environments
+            <Card className="overflow-hidden border-border/60 shadow-sm">
+              <div className="flex items-center gap-3 border-b border-border/50 bg-muted/30 px-5 py-3">
+                <div className="flex gap-1.5">
+                  <span className="h-3 w-3 rounded-full bg-red-400/70" />
+                  <span className="h-3 w-3 rounded-full bg-yellow-400/70" />
+                  <span className="h-3 w-3 rounded-full bg-green-400/70" />
+                </div>
+                <span className="font-mono text-xs text-muted-foreground">
+                  Project Dashboard — Secrets & Environments
+                </span>
               </div>
               <CardContent className="p-0">
                 <img
                   src={theme === "dark" ? "/screenshot-secrets-dark.png" : "/screenshot-secrets-light.png"}
                   alt="Secret list with masked values across Development, Staging and Production"
-                  className="w-full object-cover"
+                  className="w-full object-top object-cover transition-transform duration-300 hover:scale-[1.01]"
                 />
               </CardContent>
+              <div className="border-t border-border/40 bg-muted/20 px-5 py-3">
+                <p className="text-xs text-muted-foreground">
+                  <span className="font-medium text-foreground">Secret management dashboard</span>
+                  {" "}— Browse secrets per environment, track versions, reveal values on demand. Workspace admin access doesn't mean production secret access.
+                </p>
+              </div>
             </Card>
           </div>
-
-          <p className="mt-4 text-center text-xs text-muted-foreground">
-            Workspace admin ≠ production secret access. Environment grants are set per role, per
-            environment.
-          </p>
         </section>
 
         {/* ===== IS ENVY RIGHT FOR YOU? ===== */}
