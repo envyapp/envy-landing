@@ -298,9 +298,7 @@ export function LandingPage() {
       <header className="sticky top-0 z-40 border-b border-border/40 bg-background/90 backdrop-blur">
         <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-4 sm:px-6">
           <div className="flex items-center gap-2">
-            <span className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-primary/15 text-xs font-semibold text-primary">
-              E
-            </span>
+            <img src="/logo.png" alt="Envy" className="h-7 w-7 object-contain" />
             <p className="text-sm font-semibold">Envy</p>
           </div>
 
@@ -828,7 +826,10 @@ export function LandingPage() {
       {/* ===== FOOTER ===== */}
       <footer className="border-t border-border/40">
         <div className="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-4 px-4 py-6 text-sm text-muted-foreground sm:flex-row sm:px-6">
-          <p>© 2026 Envy. Self-hosted secrets management.</p>
+          <div className="flex items-center gap-2">
+            <img src="/logo.png" alt="Envy" className="h-5 w-5 object-contain opacity-70" />
+            <p>© 2026 Envy. Self-hosted secrets management.</p>
+          </div>
           <div className="flex items-center gap-6">
             <a
               href="https://github.com/envyapp/envy-cli"
