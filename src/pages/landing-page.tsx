@@ -161,9 +161,10 @@ const comparisonData = [
 const plans = [
   {
     name: "Founding",
-    price: "3 months free",
-    period: "",
-    priceSub: "then $1,500 for the remaining 9 months",
+    price: "$1,500",
+    period: "/ year",
+    priceNote1: "Includes the first 3 months at no additional cost.",
+    priceNote2: "Limited to 3–4 founding customers.",
     description: "For the first 3–4 teams. Full product, founding deal.",
     badge: "Limited — Founding Customer",
     features: [
@@ -188,8 +189,8 @@ const plans = [
   {
     name: "Standard",
     price: "$3,000",
-    period: "/year",
-    description: "Full-scale on-prem license for growing teams.",
+    period: "/ year",
+    description: "Full on-prem license for growing engineering teams.",
     features: [
       "Unlimited users",
       "Everything in Founding",
@@ -207,7 +208,7 @@ const plans = [
     name: "Enterprise",
     price: "Custom",
     period: "",
-    description: "For organizations with compliance requirements.",
+    description: "For organizations with compliance, procurement, or custom deployment requirements.",
     features: [
       "Everything in Standard",
       "Dedicated onboarding & training",
@@ -768,19 +769,19 @@ export function LandingPage() {
                   <CardContent>
                     <p className="mb-1 text-3xl font-semibold">
                       {plan.price}
-                      <span className="text-base font-normal text-muted-foreground">
-                        {plan.period}
-                      </span>
+                      {plan.period && (
+                        <span className="ml-1 text-base font-normal text-muted-foreground">
+                          {plan.period}
+                        </span>
+                      )}
                     </p>
-                    {"priceSub" in plan && plan.priceSub && (
-                      <p className="mb-1 text-xs font-medium text-primary">{plan.priceSub}</p>
+                    {"priceNote1" in plan && plan.priceNote1 && (
+                      <p className="mt-1 text-xs text-muted-foreground">{plan.priceNote1}</p>
                     )}
-                    {plan.highlight && (
-                      <p className="mb-4 text-xs text-muted-foreground">
-                        Limited to 3–4 founding customers · Spot reserved by email
-                      </p>
+                    {"priceNote2" in plan && plan.priceNote2 && (
+                      <p className="mb-4 text-xs text-muted-foreground">{plan.priceNote2}</p>
                     )}
-                    {!plan.highlight && <div className="mb-4" />}
+                    {!("priceNote1" in plan) && <div className="mb-4" />}
                     <ul className="space-y-2">
                       {plan.features.map((feature) => (
                         <li
